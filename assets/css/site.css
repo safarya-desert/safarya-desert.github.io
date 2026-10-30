@@ -501,3 +501,5 @@ nav.main a{white-space:nowrap}
 .wa svg{width:26px;height:26px}
 .refbox{white-space:nowrap;font-size:clamp(1.5rem,7vw,2.2rem)}
 @media (max-width:640px){.logo b{font-size:1.2rem;white-space:nowrap}.top .wrap{gap:10px}}
+.hero::after{background:linear-gradient(180deg,rgb(13 11 9/.62) 0%,rgb(13 11 9/.38) 35%,rgb(13 11 9/.62) 65%,rgb(13 11 9/.94) 100%)}
+.hero h1,.hero p.sub{text-shadow:0 2px 24px rgb(0 0 0/.45)}
