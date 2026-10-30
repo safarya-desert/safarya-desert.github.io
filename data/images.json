@@ -340,13 +340,15 @@
   },
   "djara": {
    "ar": "كهف جارة",
-   "en": "Djara (Gara) cave",
-   "file": "Djara_cave.jpg",
-   "src": "",
-   "license": "",
-   "author": "",
-   "pending": true,
-   "match": "الملف موجود في تصنيف Gara cave (= كهف جارة) لكن الترخيص لسه متجابش — الموقع بيعرض رسم توضيحي لحد ما سكربت التحقق يكمّل البيانات"
+   "en": "Djara (Gara / Rohlfs) cave",
+   "file": "GaraCaveInside.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/GaraCaveInside.jpg",
+   "w": 800,
+   "h": 533,
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "Roland Unger",
+   "match": "تصنيف Gara cave (= كهف جارة) + الوصف: Gara or Rohlfs Cave near the entrance, Libyan Desert (دقة 800px بس) — اتراجعت بالعين"
   },
   "convoy": {
    "ar": "قافلة دفع رباعي في الجلف الكبير",
@@ -359,6 +361,18 @@
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Ilan Molcho",
    "match": "الوصف: A caravan of tourist 4x4s seen from atop a mesa in Gilf Kebir (دقة 800px بس)"
+  },
+  "djaraArt": {
+   "ar": "رسوم صخرية في كهف جارة",
+   "en": "Prehistoric drawings, Djara cave",
+   "file": "GaraCaveInside3.jpg",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/GaraCaveInside3.jpg",
+   "w": 800,
+   "h": 533,
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Roland Unger",
+   "match": "تصنيف Gara cave + الوصف: Inside the Gara or Rohlfs Cave, prehistoric drawings (دقة 800px بس) — اتراجعت بالعين"
   }
  }
 }

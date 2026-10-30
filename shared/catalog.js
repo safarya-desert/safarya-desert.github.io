@@ -78,7 +78,7 @@ export const TRIPS = [
   seats:12,months:WINTER,
   summary:"إيقاع أهدى: ليلة في فندق بالبحرية وليلة في المخيم، مع قرية الحيز وعيون المية.",
   itin:[["اليوم ١","وصول البحرية، جولة في الواحة والمتحف وعين بشمو، ومبيت في فندق."],["اليوم ٢","الصحراء السوداء، جبل الكريستال، قرية الحيز، ومبيت في الصحراء البيضاء الجديدة."],["اليوم ٣","الصحراء البيضاء القديمة وقت الشروق، وعين سخنة، ورجوع القاهرة."]]},
- {id:"djara",cat:"short",dest:"white",art:"cave",cover:"djara",gallery:["white","black","bahariya"],
+ {id:"djara",cat:"short",dest:"white",art:"cave",cover:"djara",gallery:["djaraArt","white","black","bahariya"],
   title:"كهف جارة والصحراء البيضاء",titleEn:"Djara Cave & White Desert",
   route:"القاهرة ← البحرية ← كهف جارة ← الصحراء البيضاء",days:3,dur:"٣ أيام / ليلتين",
   egp:10900,usd:240,mkEgp:"12,500",mkUsd:"300–450",inc:["مخيمين","كل الوجبات","تصريح الكهف"],
