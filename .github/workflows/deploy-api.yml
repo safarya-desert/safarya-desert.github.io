@@ -1,0 +1,28 @@
+# نشر السيرفر على Cloudflare من GitHub من غير ما تسطّب أي حاجة على جهازك.
+# محتاج Secrets في المستودع: CLOUDFLARE_API_TOKEN و CLOUDFLARE_ACCOUNT_ID (شوف DEPLOY.md)
+# التشغيل: Actions → deploy-api → Run workflow
+name: deploy-api
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: الاختبارات قبل النشر
+        run: node --no-warnings worker/test/run.mjs
+      - name: إنشاء الجداول (آمن لو موجودة)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: d1 execute safarya --remote --file=schema.sql
+      - name: نشر الـ Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          command: deploy

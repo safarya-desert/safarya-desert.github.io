@@ -1,0 +1,14 @@
+# بيشغّل اختبارات السيرفر مع كل push، ويتأكد إن الصفحات متبنية من آخر بيانات
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: اختبارات السيرفر (حجوزات، وكيل، واتساب، إدارة)
+        run: node --no-warnings worker/test/run.mjs
+      - name: الصفحات متبنية من آخر بيانات
+        run: node tools/build.mjs && git diff --stat --exit-code -- . ':(exclude)sitemap.xml' || (echo "شغّل node tools/build.mjs وارفع النتيجة" && exit 1)
