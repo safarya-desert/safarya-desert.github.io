@@ -1,0 +1,5 @@
+# انسخ الملف ده باسم .dev.vars للتجربة على جهازك بس (متترفعش على GitHub)
+ADMIN_PASSWORD=change-me
+SESSION_SECRET=change-me-to-a-long-random-string-of-32-chars-or-more
+GEMINI_API_KEY=
+ALLOW_LOCALHOST=1

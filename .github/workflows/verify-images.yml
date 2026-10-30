@@ -1,0 +1,19 @@
+# بيتحقق من صور Wikimedia وتراخيصها كل شهر (أو يدويًا) ويفتح التعديلات كـ commit
+name: verify-images
+on:
+  workflow_dispatch:
+  schedule: [{ cron: "17 4 1 * *" }]
+permissions: { contents: write }
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node tools/verify-images.mjs
+      - run: node tools/build.mjs
+      - name: حفظ التحديثات
+        run: |
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add -A && (git diff --cached --quiet || git commit -m "تحديث بيانات الصور من Wikimedia Commons") && git push

@@ -1,0 +1,35 @@
+# إعدادات Cloudflare Worker — شوف DEPLOY.md للخطوات
+name = "safarya-api"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# متغيرات عامة (مش أسرار)
+[vars]
+ALLOWED_ORIGINS = "https://safarya-desert.github.io"
+ALLOW_LOCALHOST = "0"
+GEMINI_MODEL = "gemini-2.5-flash"
+CHAT_RETENTION_DAYS = "90"
+WA_TEMPLATE_LANG = "ar"
+# رقم الواتساب اللي بيظهر للعملاء (صيغة دولية من غير +) — غيّره
+PUBLIC_WHATSAPP = ""
+
+# قاعدة البيانات — حط الـ database_id اللي هيطلعلك من: npx wrangler d1 create safarya
+[[d1_databases]]
+binding = "DB"
+database_name = "safarya"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+
+# تنظيف المحادثات القديمة يوميًا الساعة ٣ الفجر UTC
+[triggers]
+crons = ["0 3 * * *"]
+
+# الأسرار (متتكتبش هنا أبدًا) — بتتحط بالأمر: npx wrangler secret put NAME
+#   ADMIN_PASSWORD        كلمة سر لوحة الإدارة
+#   SESSION_SECRET        نص عشوائي ٣٢ حرف أو أكتر
+#   GEMINI_API_KEY        مفتاح Google AI Studio
+#   WA_TOKEN              توكن WhatsApp Cloud API (System User — دائم)
+#   WA_PHONE_NUMBER_ID    Phone number ID من Meta
+#   WA_APP_SECRET         App Secret للتحقق من توقيع الـ webhook
+#   WA_VERIFY_TOKEN       أي نص عشوائي بتكتبه برضه في إعدادات الـ webhook عند Meta
+#   WA_TEMPLATE_BOOKING   (اختياري) اسم قالب تأكيد الحجز المعتمد
+#   OWNER_WHATSAPP / WA_TEMPLATE_OWNER (اختياري) إشعار صاحب الشغل
