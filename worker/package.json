@@ -1,12 +1,12 @@
 {
-  "name": "safarya-api",
+  "name": "starfall-api",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "db:init": "wrangler d1 execute safarya --remote --file=schema.sql",
-    "db:init:local": "wrangler d1 execute safarya --local --file=schema.sql",
+    "db:init": "wrangler d1 execute starfall --remote --file=schema.sql",
+    "db:init:local": "wrangler d1 execute starfall --local --file=schema.sql",
     "test": "node --no-warnings test/run.mjs"
   },
   "devDependencies": {

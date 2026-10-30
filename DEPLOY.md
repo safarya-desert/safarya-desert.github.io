@@ -1,4 +1,4 @@
-# تشغيل ونشر سفرية ديزرت — خطوة بخطوة
+# تشغيل ونشر ستارفول ديزرت — خطوة بخطوة
 
 الموقع جزئين:
 
@@ -27,7 +27,7 @@ WHATSAPP: "2010XXXXXXXX",   // رقمك بالصيغة الدولية من غي�
 
 ### أ. الحسابات
 1. اعمل حساب مجاني على https://dash.cloudflare.com (مش محتاج كارت للخطة المجانية).
-2. من **Workers & Pages → D1 → Create database** اعمل قاعدة اسمها `safarya`، وانسخ الـ **Database ID**.
+2. من **Workers & Pages → D1 → Create database** اعمل قاعدة اسمها `starfall`، وانسخ الـ **Database ID**.
 3. افتح `worker/wrangler.toml` وحط الـ ID مكان `REPLACE_WITH_YOUR_D1_ID`، وحط رقمك في `PUBLIC_WHATSAPP`.
 
 ### ب. النشر من GitHub (من غير ما تسطّب حاجة)
@@ -37,10 +37,10 @@ WHATSAPP: "2010XXXXXXXX",   // رقمك بالصيغة الدولية من غي�
    - `CLOUDFLARE_API_TOKEN`
    - `CLOUDFLARE_ACCOUNT_ID`
 4. **Actions → deploy-api → Run workflow**. هيشغّل الاختبارات، ويعمل الجداول، وينشر.
-5. في آخر الـ log هتلاقي رابط زي `https://safarya-api.xxxx.workers.dev`.
+5. في آخر الـ log هتلاقي رابط زي `https://starfall-api.xxxx.workers.dev`.
 
 ### ج. الأسرار (كلمات السر والمفاتيح)
-في Cloudflare: **Workers → safarya-api → Settings → Variables and Secrets → Add (Secret)**:
+في Cloudflare: **Workers → starfall-api → Settings → Variables and Secrets → Add (Secret)**:
 
 | الاسم | القيمة |
 |---|---|
@@ -53,12 +53,12 @@ WHATSAPP: "2010XXXXXXXX",   // رقمك بالصيغة الدولية من غي�
 ### د. ربط الموقع بالسيرفر
 في `assets/js/config.js`:
 ```js
-API_BASE: "https://safarya-api.xxxx.workers.dev",
+API_BASE: "https://starfall-api.xxxx.workers.dev",
 ```
 ارفع التعديل. دلوقتي الحجز بيتسجل برقم حجز، والتقويم بيعرض الأماكن الفاضية، والشات ظاهر، ولوحة الإدارة على `/admin/`.
 
 ### هـ. اختبار سريع بعد النشر
-- افتح `https://safarya-api.xxxx.workers.dev/api/health` لازم يرجع `"ok":true`.
+- افتح `https://starfall-api.xxxx.workers.dev/api/health` لازم يرجع `"ok":true`.
 - اعمل حجز تجربة من الموقع ← هتوصل لصفحة النجاح برقم الحجز.
 - ادخل `/admin/` بكلمة السر ← هتلاقي الحجز ← غيّر حالته لـ «مؤكد» أو «ملغي».
 
@@ -96,7 +96,7 @@ API_BASE: "https://safarya-api.xxxx.workers.dev",
 3. من **App Settings → Basic** خد `App Secret`.
 4. حط الأسرار في Cloudflare: `WA_TOKEN`، `WA_PHONE_NUMBER_ID`، `WA_APP_SECRET`، و `WA_VERIFY_TOKEN` (أي نص عشوائي تختاره).
 5. في **WhatsApp → Configuration → Webhook**:
-   - Callback URL: `https://safarya-api.xxxx.workers.dev/webhooks/whatsapp`
+   - Callback URL: `https://starfall-api.xxxx.workers.dev/webhooks/whatsapp`
    - Verify token: نفس `WA_VERIFY_TOKEN`
    - اشترك في `messages`.
 6. ابعت رسالة للرقم ← الوكيل يرد.

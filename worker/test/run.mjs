@@ -383,9 +383,9 @@ await test("واتساب: رسالة موقّعة صح بتترد، والرسا
   sent.length = 0;
   const raw = JSON.stringify(waPayload("w2", "201066666666", "سلام"));
   // نخلي الوكيل يرد بدون Gemini حقيقي
-  const g = scripted([tx("أهلًا بيك في سفرية!"), tx("x")]);
+  const g = scripted([tx("أهلًا بيك في ستارفول!"), tx("x")]);
   let out = await processWhatsApp(env, JSON.parse(raw), { gemini: g });
-  assert.equal(out[0].replied, true); assert.equal(sent[0].to, "201066666666"); assert.equal(sent[0].text.body, "أهلًا بيك في سفرية!");
+  assert.equal(out[0].replied, true); assert.equal(sent[0].to, "201066666666"); assert.equal(sent[0].text.body, "أهلًا بيك في ستارفول!");
   out = await processWhatsApp(env, JSON.parse(raw), { gemini: g });
   assert.equal(out[0].skipped, "duplicate"); assert.equal(sent.length, 1);
   // نفس الـ endpoint بالتوقيع الصحيح بيرجع 200 بسرعة

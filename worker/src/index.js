@@ -1,4 +1,4 @@
-/* سفرية ديزرت — السيرفر (Cloudflare Worker)
+/* ستارفول ديزرت — السيرفر (Cloudflare Worker)
    الموقع نفسه على GitHub Pages، وده الـ API بتاعه. */
 import { POLICY, RESERVES } from "../../shared/catalog.js";
 import { normalizePhone, isIsoDate } from "../../shared/pricing.js";

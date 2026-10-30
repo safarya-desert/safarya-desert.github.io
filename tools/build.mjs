@@ -35,14 +35,14 @@ const IC = {
   guide: I('<circle cx="12" cy="7" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>', 30), star: I('<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/>', 30),
   wa: `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3z"/></svg>`,
 };
-const LOGO = `<svg width="42" height="42" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="#E0BF86" stroke-width="1.2"/><circle cx="26.5" cy="13.5" r="4" fill="#E0BF86"/><path d="M4 27 Q12 18.5 20 24.5 T36 22.5 L36 28 Q30 37 20 37 Q10 37 4 28Z" fill="#E0BF86" opacity=".9"/></svg>`;
+const LOGO = `<svg width="42" height="42" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="#E0BF86" stroke-width="1.2"/><path d="M12.5 21.5 L24.6 12.4" stroke="#E0BF86" stroke-width="1.1" stroke-linecap="round" opacity=".55"/><path d="M27 6.8l1.25 3.45 3.45 1.25-3.45 1.25L27 16.2l-1.25-3.45-3.45-1.25 3.45-1.25z" fill="#E0BF86"/><path d="M4 28 Q12 20.5 20 25.5 T36 23.5 L36 28.5 Q30 37 20 37 Q10 37 4 28.5Z" fill="#E0BF86" opacity=".9"/></svg>`;
 
 /* ---------- language packs ---------- */
 const L = {
   en: {
     lang: "en", dir: "ltr", pre: "", other: "/ar", otherLabel: "العربية", locale: "en_US", nf: new Intl.NumberFormat("en-US"),
     fonts: "family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700",
-    name: "Safarya Desert", tag: "Western Desert · Egypt",
+    name: "Starfall Desert", tag: "Western Desert · Egypt",
     nav: [["/trips/", "Journeys"], ["/#reserves", "Protected areas"], ["/#prices", "Prices"], ["/faq/", "FAQ"], ["/booking/", "Manage booking"], ["/contact/", "Contact"]],
     home: "Home", bookCta: "Book a journey", menu: "Menu", skip: "Skip to content", curEGP: "EGP", curUSD: "USD",
     money: v => (v == null ? "On request" : "$" + new Intl.NumberFormat("en-US").format(v)), cur: "usd",
@@ -50,9 +50,9 @@ const L = {
     footAbout: "Private and small-group 4x4 journeys through Egypt's Western Desert — from Fayoum to Siwa to the Gilf Kebir — with Bedouin crews from the oases we travel through.",
     footTrips: "Journeys", allTrips: "All journeys", footContact: "Contact", office: "Office: Cairo, Egypt", whatsapp: "WhatsApp",
     legal: [["/booking/", "Manage booking"], ["/faq/", "FAQ"], ["/terms/", "Terms & cancellation"], ["/privacy/", "Privacy policy"], ["/credits/", "Photo credits"]],
-    copy: "© 2026 Safarya Desert. Location photos from Wikimedia Commons under free licences; the photographer is credited on every image.",
+    copy: "© 2026 Starfall Desert. Location photos from Wikimedia Commons under free licences; the photographer is credited on every image.",
     waAsk: "Hello, I'd like to ask about a trip",
-    homeTitle: "Safarya Desert | 4x4 Desert Safaris in Egypt's Western Desert",
+    homeTitle: "Starfall Desert | 4x4 Desert Safaris in Egypt's Western Desert",
     homeDesc: "Land Cruiser 4x4 safaris from Cairo to the White & Black Desert, Siwa Oasis, Fayoum's Whale Valley, the Great Oases and the Gilf Kebir. Transfers, camps, meals and park fees included.",
     heroTags: ["White Desert", "Black Desert", "Siwa Oasis", "Fayoum", "Gilf Kebir"],
     heroH1: ["The Western Desert,", "<em>by Land Cruiser</em>", "and a tent under the stars"],
@@ -62,7 +62,7 @@ const L = {
     season: "Season 2026 / 2027", chooseH: "Choose your journey", chooseP: "Prices per person on shared departures, including transfers from Cairo and Giza. A private car just for your group adds 45%.", all: "All",
     resEy: "Protected areas", resH: "The landscapes we travel through", resP: "Park entry is included, and our guides explain the geology and history of every place.",
     priceEy: "Fair pricing", priceH: "Below the market, never below standard", priceP: "We compared Egyptian safari operators and international booking platforms, and priced below the average without cutting back on the car, the food or the camp.",
-    thTrip: "Journey", thLocal: "Local operators (EGP)", thIntl: "International platforms", thUsEGP: "Safarya – residents", thUsUSD: "Safarya – international", save: s => `Save ${s}%`,
+    thTrip: "Journey", thLocal: "Local operators (EGP)", thIntl: "International platforms", thUsEGP: "Starfall – residents", thUsUSD: "Starfall – international", save: s => `Save ${s}%`,
     priceNote: "Market prices are estimates from our review of published operator and platform prices and change with the season. International prices are in USD because park fees for foreign visitors are higher.",
     inclEy: "Everything the journey needs", inclH: "What's included",
     incl: [["Transfers", "Air-conditioned minibus from Cairo and Giza, then a Land Cruiser 4x4 in the desert.", "bus"], ["Accommodation", "Salt-and-mud eco-lodges in Siwa, a hotel in Bahariya, a Bedouin camp in the White Desert.", "home"], ["Meals", "Breakfast, lunch and a Bedouin charcoal-grilled dinner, with water, tea and coffee throughout.", "meal"], ["Park fees", "White Desert, Wadi El Rayan and Whale Valley tickets, and Great Sand Sea permits.", "park"], ["Safari guide", "An English-speaking guide, plus a Bedouin guide from the region.", "guide"], ["Experiences", "Sandboarding, swimming in sulphur springs, stargazing and sunrise photography.", "star"]],
@@ -71,7 +71,7 @@ const L = {
     seasEy: "When to go", seasH: "Desert seasons", seasP: "The White Desert and Siwa are at their best from October to April. In summer we only run the Fayoum overnight stargazing trip.",
     legend: ["Best season", "Good, with adjusted hours", "Very hot — Fayoum night trip only"],
     ctaH: "Ready for the desert?", ctaP: "Pick a journey, a date and your group, and see the final price instantly. Your places are held for 48 hours until the 30% deposit.", ctaB: "Book a journey", ctaQ: "I have a question first",
-    tripsTitle: "All journeys & prices", tripsDesc: "Every Safarya Desert journey: Fayoum day trips, White Desert overnights, Siwa, the Great Oases loop and the Gilf Kebir expedition — with prices in USD and EGP.",
+    tripsTitle: "All journeys & prices", tripsDesc: "Every Starfall Desert journey: Fayoum day trips, White Desert overnights, Siwa, the Great Oases loop and the Gilf Kebir expedition — with prices in USD and EGP.",
     tripsH: "All journeys", tripsP: "Twelve journeys from a single day to twelve. Search by name or place, or filter by length and month.", search: "Search: Siwa, stars, whales, camp…", anyMonth: "Any month", sortRec: "Recommended", sortPrice: "Price: low to high", sortDays: "Shortest first", searchLabel: "Search journeys", destLabel: "Destination", monthLabel: "Month", sortLabel: "Sort",
     facts: (t) => [[IC.clock, t.dur], [IC.car, "Land Cruiser 4x4"], [IC.users, "4 per vehicle"], [IC.pin, "Pick-up in Cairo / Giza"], ...(t.quoteOnly ? [[IC.doc, "Priced on request"]] : [])],
     itinH: "Itinerary", incH: "Included", excH: "Not included", placesH: "Places on this journey", seasonH: "Season", seasonNote: n => `Highlighted months are when this journey runs. Book at least ${n} days ahead.`,
@@ -85,14 +85,14 @@ const L = {
     typeL: "Trip type", group: "Shared group", groupS: "With other travellers", private: "Private", privateS: "A car just for you +45%", stayL: "Accommodation", std: "Standard", stdS: "Bedouin camp / lodge", up: "Premium upgrade", upS: "Premium eco-lodge +15%",
     counters: [["bAdults", "Adults (12+)", 1, 24, 2], ["bKids", "Children 6–11 (50%)", 0, 12, 0], ["bKidsSmall", "Children 2–5 (25%)", 0, 12, 0], ["bInfants", "Infants under 2 (free)", 0, 6, 0]], plus: "Add", minus: "Remove",
     nameL: "Full name", namePh: "Your full name", phoneL: "Phone / WhatsApp (with country code)", phonePh: "+44 7700 900123", noteL: "Notes (optional)", notePh: "Vegetarian, birthday, drone photography…", hp: "Leave empty",
-    consent: 'I agree to the <a href="/terms/" target="_blank">terms & cancellation policy</a> and the <a href="/privacy/" target="_blank">privacy policy</a>, and to Safarya contacting me on this number about my booking.',
+    consent: 'I agree to the <a href="/terms/" target="_blank">terms & cancellation policy</a> and the <a href="/privacy/" target="_blank">privacy policy</a>, and to Starfall contacting me on this number about my booking.',
     submit: "Reserve my places", totalL: "Total", depositL: "Deposit to confirm (30%):", pay: ["Card", "Bank transfer", "InstaPay", "Vodafone Cash", "Cash on the day"], payNote: "Nothing is charged online: after booking we send deposit details on WhatsApp.",
-    trackTitle: "Manage your booking", trackDesc: "Check the status of your Safarya Desert booking with your reference and phone number, or cancel it under our policy.", trackEy: "My booking", trackH: "Manage your booking", trackP: "Enter your booking reference (like SD-AB12CD) and the phone number you booked with.", refL: "Booking reference", showBooking: "Show booking",
-    contactTitle: "Contact us", contactDesc: "Talk to the Safarya Desert team on WhatsApp or send a message about private trips, groups and companies.", contactEy: "Contact", contactH: "We're here to help", contactP: "For private trips, groups, companies, or any question before you book.",
+    trackTitle: "Manage your booking", trackDesc: "Check the status of your Starfall Desert booking with your reference and phone number, or cancel it under our policy.", trackEy: "My booking", trackH: "Manage your booking", trackP: "Enter your booking reference (like SD-AB12CD) and the phone number you booked with.", refL: "Booking reference", showBooking: "Show booking",
+    contactTitle: "Contact us", contactDesc: "Talk to the Starfall Desert team on WhatsApp or send a message about private trips, groups and companies.", contactEy: "Contact", contactH: "We're here to help", contactP: "For private trips, groups, companies, or any question before you book.",
     msgH: "Send us a message", nameS: "Name", msgL: "Your message", msgPh: "For example: a private Siwa trip for 4 people in December", send: "Send", privacyConsent: 'I agree to the <a href="/privacy/" target="_blank">privacy policy</a> and to being contacted on this number.',
     fastest: "Fastest: WhatsApp", ourNumber: "Our number:", openWa: "Open WhatsApp", officeH: "Office", officeP: "Cairo, Egypt. Pick-ups from your hotel in Cairo or Giza.", haveBooking: "Already booked?", trackLink: "Manage your booking",
     faqTitle: "Frequently asked questions", faqDesc: "Answers about pick-up times, visas and permits, what to pack, children's prices, camps, confirmation, payment, cancellation, safety and the Gilf Kebir.", faqEy: "Before you travel", faqH: "Frequently asked questions", notHere: "Didn't find your answer?", askWaBtn: "Ask us on WhatsApp", sendMsg: "Send a message", faqWa: "I have a question:",
-    creditsTitle: "Photo credits", creditsDesc: "Sources and licences of the location photos used on the Safarya Desert website.", creditsEy: "Transparency", creditsH: "Photo sources & licences", creditsP: d => `Every location photo is a real image from Wikimedia Commons. Last verified: ${d}.`,
+    creditsTitle: "Photo credits", creditsDesc: "Sources and licences of the location photos used on the Starfall Desert website.", creditsEy: "Transparency", creditsH: "Photo sources & licences", creditsP: d => `Every location photo is a real image from Wikimedia Commons. Last verified: ${d}.`,
     thPlace: "Place", thAuthor: "Photographer", thLicense: "Licence", thSource: "Source", creditsNote: "Images are used unmodified apart from resizing. CC BY and CC BY-SA licences allow commercial use with credit to the photographer and licence, shown on every image on this site.",
     nfTitle: "Page not found", nfH: "Lost in the desert", nfP: "This page doesn't exist. Head back home or browse our journeys.",
     privacyTitle: "Privacy policy", termsTitle: "Terms & cancellation policy", updated: "Last updated: October 2026", legalEy: "Legal",
@@ -100,7 +100,7 @@ const L = {
   ar: {
     lang: "ar", dir: "rtl", pre: "/ar", other: "", otherLabel: "English", locale: "ar_EG", nf: new Intl.NumberFormat("ar-EG"),
     fonts: "family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700",
-    name: "سفرية ديزرت", tag: "Western Desert · Egypt",
+    name: "ستارفول ديزرت", tag: "Starfall Desert · Egypt",
     nav: [["/trips/", "الرحلات"], ["/#reserves", "المحميات"], ["/#prices", "الأسعار"], ["/faq/", "أسئلة"], ["/booking/", "متابعة حجز"], ["/contact/", "تواصل"]],
     home: "الرئيسية", bookCta: "احجز رحلتك", menu: "القائمة", skip: "انتقل للمحتوى", curEGP: "ج.م", curUSD: "$",
     money: v => (v == null ? "عند الطلب" : new Intl.NumberFormat("ar-EG").format(v) + " ج.م"), cur: "egp",
@@ -108,9 +108,9 @@ const L = {
     footAbout: "رحلات دفع رباعي خاصة وبمجموعات صغيرة في الصحراء الغربية المصرية، من الفيوم لسيوة للجلف الكبير، مع بدو من أهل الواحات في كل منطقة بنزورها.",
     footTrips: "الرحلات", allTrips: "كل الرحلات", footContact: "تواصل", office: "المكتب: القاهرة، مصر", whatsapp: "واتساب",
     legal: [["/booking/", "متابعة حجز"], ["/faq/", "الأسئلة الشائعة"], ["/terms/", "الشروط وسياسة الإلغاء"], ["/privacy/", "سياسة الخصوصية"], ["/credits/", "مصادر الصور"]],
-    copy: "© ٢٠٢٦ سفرية ديزرت. صور الأماكن من Wikimedia Commons بتراخيص حرة، واسم المصوّر مكتوب على كل صورة.",
+    copy: "© ٢٠٢٦ ستارفول ديزرت. صور الأماكن من Wikimedia Commons بتراخيص حرة، واسم المصوّر مكتوب على كل صورة.",
     waAsk: "أهلًا، عايز أستفسر عن رحلة",
-    homeTitle: "سفرية ديزرت | رحلات سفاري ٤×٤ في الصحراء الغربية المصرية",
+    homeTitle: "ستارفول ديزرت | رحلات سفاري ٤×٤ في الصحراء الغربية المصرية",
     homeDesc: "رحلات سفاري بعربيات لاند كروزر ٤×٤ من القاهرة للصحراء البيضاء والسوداء وسيوة والفيوم ووادي الحيتان والواحات والجلف الكبير. الانتقالات والإقامة والوجبات ورسوم المحميات شاملة.",
     heroTags: ["الصحراء البيضاء", "الصحراء السوداء", "واحة سيوة", "الفيوم", "الجلف الكبير"],
     heroH1: ["الصحراء الغربية كلها،", "<em>بلاند كروزر</em>", "وخيمة تحت النجوم"],
@@ -120,7 +120,7 @@ const L = {
     season: "موسم ٢٠٢٦ / ٢٠٢٧", chooseH: "اختار رحلتك", chooseP: "كل الأسعار للفرد في رحلات المجموعات، شاملة النقل من القاهرة والجيزة. الرحلة الخاصة لعربيتك لوحدك بتزيد ٤٥٪.", all: "الكل",
     resEy: "المحميات الطبيعية", resH: "محميات بنزورها في رحلاتنا", resP: "تذاكر دخول المحميات محسوبة في سعر الرحلة، ومرشدينا بيشرحوا جيولوجيا كل مكان وتاريخه.",
     priceEy: "مقارنة أسعار السوق", priceH: "سعر في النص بالظبط", priceP: "راجعنا أسعار شركات السفاري المصرية ومنصات الحجز العالمية، وحطينا أسعارنا تحت متوسط السوق من غير ما نقلل في العربية أو الأكل أو الإقامة.",
-    thTrip: "الرحلة", thLocal: "شركات محلية (للمصريين)", thIntl: "منصات أجنبية (للأجانب)", thUsEGP: "سفرية – مصري", thUsUSD: "سفرية – أجنبي", save: s => `أوفر ${new Intl.NumberFormat("ar-EG").format(s)}٪`,
+    thTrip: "الرحلة", thLocal: "شركات محلية (للمصريين)", thIntl: "منصات أجنبية (للأجانب)", thUsEGP: "ستارفول – مصري", thUsUSD: "ستارفول – أجنبي", save: s => `أوفر ${new Intl.NumberFormat("ar-EG").format(s)}٪`,
     priceNote: "أسعار السوق تقديرية من مراجعتنا لأسعار منشورة لشركات ومنصات حجز، وبتتغير حسب الموسم والعرض. الأسعار بالدولار للأجانب لأن رسوم المحميات ليهم أعلى.",
     inclEy: "كل اللي الرحلة محتاجاه", inclH: "السعر شامل إيه؟",
     incl: [["الانتقالات", "ميكروباص أو هاي آس مكيف من القاهرة والجيزة، وبعدها لاند كروزر ٤×٤ جوه الصحرا.", "bus"], ["الإقامة", "إيكولودج من الطين والملح في سيوة، فندق في البحرية، ومخيم بدوي في الصحراء البيضاء.", "home"], ["الوجبات", "فطار وغدا وعشا بدوي مشوي على الفحم، ومية وشاي وقهوة طول الرحلة.", "meal"], ["رسوم المحميات", "تذاكر الصحراء البيضاء ووادي الريان ووادي الحيتان وتصاريح بحر الرمال.", "park"], ["مرشد سفاري", "مرشد بيتكلم عربي وإنجليزي، ودليل بدوي من أهل المنطقة.", "guide"], ["الأنشطة", "تزلج على الرمال، سباحة في العيون الكبريتية، سهرة نجوم، وتصوير الشروق.", "star"]],
@@ -129,7 +129,7 @@ const L = {
     seasEy: "أحسن وقت للسفر", seasH: "مواسم الصحراء", seasP: "الصحراء البيضاء وسيوة أحلى من أكتوبر لأبريل. في الصيف بنعمل رحلة الفيوم بالمبيت ورصد النجوم بس.",
     legend: ["أفضل موسم", "مناسب مع تعديل المواعيد", "حر شديد، الفيوم الليلية بس"],
     ctaH: "جاهز للصحرا؟", ctaP: "اختار الرحلة والتاريخ وعدد الأفراد، والسعر بيتحسب قدامك. مكانك بيتحجز مبدئيًا ٤٨ ساعة لحد ما تدفع ٣٠٪ مقدم.", ctaB: "احجز رحلتك", ctaQ: "عندي سؤال الأول",
-    tripsTitle: "كل الرحلات والأسعار", tripsDesc: "قائمة رحلات سفرية ديزرت: يوم واحد في الفيوم، مبيت في الصحراء البيضاء، سيوة، الواحات الكبرى، وإكسبيديشن الجلف الكبير — بالأسعار للمصريين والأجانب.",
+    tripsTitle: "كل الرحلات والأسعار", tripsDesc: "قائمة رحلات ستارفول ديزرت: يوم واحد في الفيوم، مبيت في الصحراء البيضاء، سيوة، الواحات الكبرى، وإكسبيديشن الجلف الكبير — بالأسعار للمصريين والأجانب.",
     tripsH: "كل الرحلات", tripsP: "١٢ رحلة من يوم واحد لـ ١٢ يوم. دوّر بالاسم أو المكان، أو صفّي حسب المدة والشهر.", search: "دوّر: سيوة، نجوم، حيتان، مخيم…", anyMonth: "أي شهر", sortRec: "الترتيب المقترح", sortPrice: "الأرخص الأول", sortDays: "الأقصر الأول", searchLabel: "بحث في الرحلات", destLabel: "الوجهة", monthLabel: "الشهر", sortLabel: "الترتيب",
     facts: (t) => [[IC.clock, t.dur], [IC.car, "لاند كروزر ٤×٤"], [IC.users, "٤ ركاب في العربية"], [IC.pin, "التجمع من القاهرة / الجيزة"], ...(t.quoteOnly ? [[IC.doc, "بعرض سعر"]] : [])],
     itinH: "البرنامج", incH: "شامل", excH: "مش شامل", placesH: "الأماكن في الرحلة", seasonH: "الموسم", seasonNote: n => `الشهور المظللة هي اللي الرحلة شغالة فيها. أقل مدة للحجز قبل الرحلة: ${new Intl.NumberFormat("ar-EG").format(n)} أيام.`,
@@ -143,14 +143,14 @@ const L = {
     typeL: "نوع الرحلة", group: "مجموعة", groupS: "مع مسافرين تانيين", private: "خاصة", privateS: "عربية ليك لوحدك +٤٥٪", stayL: "الإقامة", std: "القياسية", stdS: "مخيم بدوي / لودج", up: "ترقية فاخرة", upS: "إيكولودج بريميوم +١٥٪",
     counters: [["bAdults", "الكبار (١٢ سنة وأكتر)", 1, 24, 2], ["bKids", "أطفال ٦–١١ سنة (٥٠٪)", 0, 12, 0], ["bKidsSmall", "أطفال ٢–٥ سنين (٢٥٪)", 0, 12, 0], ["bInfants", "رضّع أقل من سنتين (مجانًا)", 0, 6, 0]], plus: "زوّد", minus: "قلّل",
     nameL: "الاسم بالكامل", namePh: "اسمك بالكامل", phoneL: "رقم الموبايل / واتساب", phonePh: "01xxxxxxxxx", noteL: "ملاحظات (اختياري)", notePh: "نباتي، عيد ميلاد، محتاج تصوير درون…", hp: "سيبه فاضي",
-    consent: 'موافق على <a href="/ar/terms/" target="_blank">الشروط وسياسة الإلغاء</a> و<a href="/ar/privacy/" target="_blank">سياسة الخصوصية</a>، وإن فريق سفرية يتواصل معايا على الرقم ده بخصوص الحجز.',
+    consent: 'موافق على <a href="/ar/terms/" target="_blank">الشروط وسياسة الإلغاء</a> و<a href="/ar/privacy/" target="_blank">سياسة الخصوصية</a>، وإن فريق ستارفول يتواصل معايا على الرقم ده بخصوص الحجز.',
     submit: "أكّد الحجز المبدئي", totalL: "الإجمالي", depositL: "المقدم لتأكيد الحجز (٣٠٪):", pay: ["إنستاباي", "فودافون كاش", "فيزا / ماستركارد", "تحويل بنكي", "كاش يوم الرحلة"], payNote: "الدفع مش أونلاين: بعد الحجز فريقنا بيبعتلك بيانات دفع المقدم على واتساب.",
-    trackTitle: "متابعة الحجز", trackDesc: "تابع حالة حجزك في سفرية ديزرت برقم الحجز ورقم الموبايل، أو ألغيه حسب سياسة الإلغاء.", trackEy: "حجوزاتي", trackH: "متابعة الحجز", trackP: "اكتب رقم الحجز (زي SD-AB12CD) ورقم الموبايل اللي حجزت بيه.", refL: "رقم الحجز", showBooking: "اعرض الحجز",
-    contactTitle: "تواصل معانا", contactDesc: "كلّم فريق سفرية ديزرت على واتساب أو ابعت رسالة لرحلات خاصة ومجموعات وشركات.", contactEy: "تواصل", contactH: "إحنا موجودين", contactP: "لرحلة خاصة، مجموعة، شركة، أو أي سؤال قبل ما تحجز.",
+    trackTitle: "متابعة الحجز", trackDesc: "تابع حالة حجزك في ستارفول ديزرت برقم الحجز ورقم الموبايل، أو ألغيه حسب سياسة الإلغاء.", trackEy: "حجوزاتي", trackH: "متابعة الحجز", trackP: "اكتب رقم الحجز (زي SD-AB12CD) ورقم الموبايل اللي حجزت بيه.", refL: "رقم الحجز", showBooking: "اعرض الحجز",
+    contactTitle: "تواصل معانا", contactDesc: "كلّم فريق ستارفول ديزرت على واتساب أو ابعت رسالة لرحلات خاصة ومجموعات وشركات.", contactEy: "تواصل", contactH: "إحنا موجودين", contactP: "لرحلة خاصة، مجموعة، شركة، أو أي سؤال قبل ما تحجز.",
     msgH: "ابعتلنا رسالة", nameS: "الاسم", msgL: "رسالتك", msgPh: "مثلًا: عايزين رحلة سيوة لـ ١٢ فرد في ديسمبر", send: "ابعت", privacyConsent: 'موافق على <a href="/ar/privacy/" target="_blank">سياسة الخصوصية</a> وإنكم تتواصلوا معايا على الرقم ده.',
     fastest: "أسرع طريقة: واتساب", ourNumber: "رقمنا:", openWa: "افتح واتساب", officeH: "المكتب", officeP: "القاهرة، مصر. التجمع للرحلات من ميدان التحرير أو الجيزة أو ٦ أكتوبر.", haveBooking: "عندك حجز؟", trackLink: "تابع حجزك",
     faqTitle: "الأسئلة الشائعة", faqDesc: "إجابات عن مواعيد التحرك، اللي تجيبه معاك، أسعار الأطفال، المخيم، تأكيد الحجز، سياسة الإلغاء، ورحلة الجلف الكبير.", faqEy: "قبل ما تسافر", faqH: "أسئلة بتتكرر", notHere: "سؤالك مش هنا؟", askWaBtn: "اسألنا على واتساب", sendMsg: "ابعت رسالة", faqWa: "عندي سؤال:",
-    creditsTitle: "مصادر الصور", creditsDesc: "مصادر وتراخيص صور الأماكن المستخدمة في موقع سفرية ديزرت.", creditsEy: "شفافية", creditsH: "مصادر الصور وتراخيصها", creditsP: d => `كل صور الأماكن حقيقية من Wikimedia Commons. آخر تحقق: ${d}.`,
+    creditsTitle: "مصادر الصور", creditsDesc: "مصادر وتراخيص صور الأماكن المستخدمة في موقع ستارفول ديزرت.", creditsEy: "شفافية", creditsH: "مصادر الصور وتراخيصها", creditsP: d => `كل صور الأماكن حقيقية من Wikimedia Commons. آخر تحقق: ${d}.`,
     thPlace: "المكان", thAuthor: "المصوّر", thLicense: "الترخيص", thSource: "المصدر", creditsNote: "الصور مستخدمة من غير تعديل غير تصغير المقاس. تراخيص CC BY و CC BY-SA بتسمح بالاستخدام التجاري بشرط ذكر اسم المصوّر والترخيص، وده مكتوب على كل صورة في الموقع.",
     nfTitle: "الصفحة مش موجودة", nfH: "تُهنا في الصحرا", nfP: "الصفحة دي مش موجودة. ارجع للرئيسية أو شوف الرحلات.",
     privacyTitle: "سياسة الخصوصية", termsTitle: "الشروط والأحكام وسياسة الإلغاء", updated: "آخر تحديث: أكتوبر ٢٠٢٦", legalEy: "قانوني",
@@ -526,9 +526,9 @@ for (const lang of ["en", "ar"]) {
   add("/faq/");
 
   /* legal */
-  F("privacy/index.html", layout(lang, { path: "/privacy/", title: S.privacyTitle, desc: lang === "ar" ? "إزاي سفرية ديزرت بتجمع وتستخدم وتحمي بياناتك الشخصية." : "How Safarya Desert collects, uses and protects your personal data in bookings, chat and WhatsApp.",
+  F("privacy/index.html", layout(lang, { path: "/privacy/", title: S.privacyTitle, desc: lang === "ar" ? "إزاي ستارفول ديزرت بتجمع وتستخدم وتحمي بياناتك الشخصية." : "How Starfall Desert collects, uses and protects your personal data in bookings, chat and WhatsApp.",
     body: `${pageHead(S, lang, { eyebrow: S.legalEy, title: S.privacyTitle, sub: S.updated, crumbs: [[null, S.privacyTitle]] })}<section><div class="wrap prose">${PRIVACY[lang]}</div></section>` }));
-  F("terms/index.html", layout(lang, { path: "/terms/", title: S.termsTitle, desc: lang === "ar" ? "شروط الحجز والدفع والإلغاء والتأجيل والأطفال والسلامة في رحلات سفرية ديزرت." : "Booking, payment, cancellation, children and safety terms for Safarya Desert journeys.",
+  F("terms/index.html", layout(lang, { path: "/terms/", title: S.termsTitle, desc: lang === "ar" ? "شروط الحجز والدفع والإلغاء والتأجيل والأطفال والسلامة في رحلات ستارفول ديزرت." : "Booking, payment, cancellation, children and safety terms for Starfall Desert journeys.",
     body: `${pageHead(S, lang, { eyebrow: S.legalEy, title: S.termsTitle, sub: S.updated, crumbs: [[null, S.termsTitle]] })}<section><div class="wrap prose">${TERMS[lang]}</div></section>` }));
   add("/privacy/"); add("/terms/");
 
@@ -549,7 +549,7 @@ ${Object.entries(P).map(([k, i]) => `<tr><td><b>${esc(placeFor(k, lang))}</b><br
 
 /* admin panel (owner, Arabic) */
 out("admin/index.html", layout("ar", {
-  path: "/admin/", title: "لوحة الإدارة", desc: "لوحة إدارة سفرية ديزرت", noindex: true, scripts: ["admin.js"], bodyAttrs: 'class="admin-body" data-no-chat', alt: false,
+  path: "/admin/", title: "لوحة الإدارة", desc: "لوحة إدارة ستارفول ديزرت", noindex: true, scripts: ["admin.js"], bodyAttrs: 'class="admin-body" data-no-chat', alt: false,
   body: `<section style="padding-top:24px"><div class="wrap" id="adminApp"><div class="panel" style="max-width:420px;margin:40px auto"><h1 style="font-size:1.8rem">لوحة الإدارة</h1><p class="small">بتحمّل…</p></div></div></section>`,
 }));
 
@@ -570,6 +570,6 @@ const csvq = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
 out("image-sources.csv", "﻿" + [["key", "place_en", "place_ar", "image_url", "source_page", "author", "license", "license_url", "verified_on", "how_verified", "used_on_pages"].join(","),
   ...Object.entries(P).map(([k, i]) => [k, i.en, i.ar, i.src || "", i.pending ? "" : commons(i.file), i.author, i.license, i.licenseUrl, i.pending ? "pending" : IMG.checked, i.match, [...(usage[k] || [])].join(" ")].map(csvq).join(","))].join("\n") + "\n");
 out("assets/js/images.js", `/* Generated from data/images.json by node tools/build.mjs — do not edit by hand */\nexport const IMAGES = ${JSON.stringify(Object.fromEntries(Object.entries(P).map(([k, i]) => [k, { ar: i.ar, en: i.en, src: i.src, w: i.w, h: i.h, file: i.file, author: i.author, license: i.license, pending: !!i.pending }])))};\n`);
-out("assets/favicon.svg", `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#13110E"/><circle cx="26.5" cy="13.5" r="4" fill="#E0BF86"/><path d="M4 27 Q12 18.5 20 24.5 T36 22.5 L36 28 Q30 37 20 37 Q10 37 4 28Z" fill="#E0BF86"/></svg>`);
+out("assets/favicon.svg", `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#13110E"/><path d="M12.5 21.5 L24.6 12.4" stroke="#E0BF86" stroke-width="1.3" stroke-linecap="round" opacity=".6"/><path d="M27 6.8l1.25 3.45 3.45 1.25-3.45 1.25L27 16.2l-1.25-3.45-3.45-1.25 3.45-1.25z" fill="#E0BF86"/><path d="M4 28 Q12 20.5 20 25.5 T36 23.5 L36 28.5 Q30 37 20 37 Q10 37 4 28.5Z" fill="#E0BF86"/></svg>`);
 
 console.log(`✔ Built ${pagesAll.length + 6} pages (EN + AR) + sitemap + robots + image-sources.csv`);

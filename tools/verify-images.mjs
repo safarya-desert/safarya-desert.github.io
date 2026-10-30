@@ -18,7 +18,7 @@ for (let i = 0; i < entries.length; i += 25) {
   const chunk = entries.slice(i, i + 25);
   const titles = chunk.map(([, p]) => "File:" + p.file.replace(/_/g, " ")).join("|");
   const url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1280&titles=" + encodeURIComponent(titles);
-  const r = await fetch(url, { headers: { "user-agent": "SafaryaDesertSite/1.0 (image license check)" } });
+  const r = await fetch(url, { headers: { "user-agent": "StarfallDesertSite/1.0 (image license check)" } });
   if (!r.ok) throw new Error("Commons API " + r.status);
   const j = await r.json();
   const byTitle = Object.fromEntries(j.query.pages.map(p => [p.title, p]));

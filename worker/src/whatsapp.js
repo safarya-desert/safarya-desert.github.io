@@ -85,7 +85,7 @@ export function sendTemplate(env, to, name, params, lang = "ar") {
 /** نص تأكيد الحجز */
 export function bookingText(b) {
   const lines = [
-    `✅ ${b.status === "quote" ? "اتسجل طلب عرض السعر" : "اتسجل حجزك المبدئي"} — سفرية ديزرت`,
+    `✅ ${b.status === "quote" ? "اتسجل طلب عرض السعر" : "اتسجل حجزك المبدئي"} — ستارفول ديزرت`,
     `رقم الحجز: ${b.ref}`,
     `الرحلة: ${b.tripTitle}`,
     `التاريخ: ${b.date}`,

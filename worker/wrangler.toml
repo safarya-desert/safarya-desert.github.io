@@ -1,5 +1,5 @@
 # إعدادات Cloudflare Worker — شوف DEPLOY.md للخطوات
-name = "safarya-api"
+name = "starfall-api"
 main = "src/index.js"
 compatibility_date = "2025-06-01"
 
@@ -13,10 +13,10 @@ WA_TEMPLATE_LANG = "ar"
 # رقم الواتساب اللي بيظهر للعملاء (صيغة دولية من غير +) — غيّره
 PUBLIC_WHATSAPP = ""
 
-# قاعدة البيانات — حط الـ database_id اللي هيطلعلك من: npx wrangler d1 create safarya
+# قاعدة البيانات — حط الـ database_id اللي هيطلعلك من: npx wrangler d1 create starfall
 [[d1_databases]]
 binding = "DB"
-database_name = "safarya"
+database_name = "starfall"
 database_id = "REPLACE_WITH_YOUR_D1_ID"
 
 # تنظيف المحادثات القديمة يوميًا الساعة ٣ الفجر UTC

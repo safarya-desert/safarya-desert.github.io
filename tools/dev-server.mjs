@@ -36,4 +36,4 @@ createServer(async (req, res) => {
     const nf = await readFile(join(ROOT, "404.html")).catch(() => "404");
     res.writeHead(404, { "content-type": TYPES[".html"] }); res.end(nf);
   }
-}).listen(PORT, () => console.log(`سفرية ديزرت شغال على http://localhost:${PORT}  (API: ${API || "متقفل"}) — كلمة سر الإدارة: ${env.ADMIN_PASSWORD}`));
+}).listen(PORT, () => console.log(`ستارفول ديزرت شغال على http://localhost:${PORT}  (API: ${API || "متقفل"}) — كلمة سر الإدارة: ${env.ADMIN_PASSWORD}`));
