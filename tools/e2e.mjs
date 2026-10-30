@@ -30,7 +30,8 @@ async function visit(page, path) {
   return errors;
 }
 
-const PAGES = ["/", "/trips/", "/trips/bw2.html", "/trips/gilf.html", "/trips/djara.html", "/book/?trip=siwa3", "/booking/", "/contact/", "/faq/", "/privacy/", "/terms/", "/credits/", "/admin/", "/does-not-exist"];
+const EN_PAGES = ["/", "/trips/", "/trips/bw2.html", "/trips/gilf.html", "/trips/djara.html", "/book/?trip=siwa3", "/booking/", "/contact/", "/faq/", "/privacy/", "/terms/", "/credits/"];
+const PAGES = [...EN_PAGES, ...EN_PAGES.map(p => "/ar" + p), "/admin/", "/does-not-exist"];
 for (const [label, vp, mob] of [["desktop", { width: 1366, height: 860 }, false], ["mobile", { width: 375, height: 812 }, true]]) {
   const c = await ctx(vp, mob);
   for (const path of PAGES) {
@@ -56,7 +57,7 @@ for (const [label, vp, mob] of [["desktop", { width: 1366, height: 860 }, false]
 {
   const c = await ctx({ width: 1280, height: 800 }); const page = await c.newPage();
   const seen = new Set(), bad = [];
-  for (const p of PAGES.slice(0, 12)) {
+  for (const p of PAGES.slice(0, 24)) {
     await page.goto(BASE + p, { waitUntil: "domcontentloaded" });
     for (const h of await page.evaluate(() => [...document.querySelectorAll("a[href^='/']")].map(a => a.getAttribute("href").split("#")[0]))) seen.add(h);
   }
@@ -78,7 +79,7 @@ if (api?.ok) {
   ok("التوافر بيتأكد بعد اختيار اليوم", true);
   await page.click('[data-step="bKids"][data-d="1"]');
   const total = await page.textContent("#sTotal");
-  ok("الإجمالي محسوب (٢ كبار + طفل)", /٢٤٬٧٥٠|24,750|٢٤,٧٥٠/.test(total), total);
+  ok("الإجمالي محسوب بالدولار (٢ كبار + طفل)", /\$650/.test(total), total);
   await page.click("#bSubmit");
   ok("التحقق بيمنع الإرسال من غير بيانات", await page.isVisible("#eName:not(:empty)"));
   await page.fill("#bName", "مستخدم تجربة");
@@ -89,7 +90,7 @@ if (api?.ok) {
   await page.waitForSelector(".refbox", { timeout: 6000 });
   const ref = (await page.textContent(".refbox")).trim();
   ok("الحجز اتسجل ورقم الحجز ظهر مع حركة النجاح", /^SD-[A-Z0-9]{6}$/.test(ref), ref);
-  ok("حالة الحجز: في انتظار المقدم", (await page.textContent(".status-pill")).includes("انتظار"));
+  ok("حالة الحجز: Awaiting deposit", (await page.textContent(".status-pill")).includes("Awaiting"));
   await page.waitForTimeout(1300);
   await page.screenshot({ path: `${SHOTS}/flow-booked-mobile.png`, fullPage: true });
   // نفس اليوم ونفس الرقم تاني → رسالة منع التكرار
@@ -100,7 +101,7 @@ if (api?.ok) {
   await page.click('[data-step="bKids"][data-d="1"]');
   await page.click("#bSubmit");
   await page.waitForSelector("#bErr:not([hidden])", { timeout: 6000 });
-  ok("الحجز المكرر بيترفض برسالة واضحة", (await page.textContent("#bErr")).includes("حجز قائم"), await page.textContent("#bErr"));
+  ok("الحجز المكرر بيترفض برسالة واضحة", (await page.textContent("#bErr")).includes("already have a booking"), await page.textContent("#bErr"));
   // متابعة وإلغاء
   await page.goto(BASE + "/booking/"); await page.addStyleTag({ content: "html{scroll-behavior:auto!important}" });
   await page.fill("#lRef", ref); await page.fill("#lPhone", "01011112222"); await page.click("#lBtn");
@@ -110,7 +111,7 @@ if (api?.ok) {
   ok("الإلغاء من صفحة المتابعة شغال", true);
   await page.fill("#lRef", ref); await page.fill("#lPhone", "01099999999"); await page.click("#lBtn");
   await page.waitForSelector("#lErr:not([hidden])");
-  ok("رقم موبايل غلط مايكشفش الحجز", (await page.textContent("#lErr")).includes("مفيش حجز"));
+  ok("رقم موبايل غلط مايكشفش الحجز", (await page.textContent("#lErr")).includes("No booking found"));
   // الشات بيظهر وبيرد حتى لو الوكيل مش متظبط
   await page.goto(BASE + "/"); await page.waitForSelector(".chat-fab");
   await page.click(".chat-fab"); await page.fill(".chat textarea", "عايز رحلة سيوة"); await page.press(".chat textarea", "Enter");

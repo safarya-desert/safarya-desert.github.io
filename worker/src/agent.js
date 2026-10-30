@@ -2,6 +2,7 @@
    الوكيل مش بيلمس قاعدة البيانات مباشرة: عنده ٨ أدوات محددة بس، وكل أداة
    بتعدّي على نفس قواعد التحقق اللي بيستخدمها الموقع. */
 import { POLICY, DESTINATIONS, CATEGORIES } from "../../shared/catalog.js";
+import { TRIPS_EN, FAQ_EN } from "../../shared/catalog-en.js";
 import { cairoToday, formatMoney, normalizePhone } from "../../shared/pricing.js";
 import { listTrips, getTrip, listFaq, checkOffer, createBooking, findOwnBooking, cancelOwnBooking, publicBooking } from "./core.js";
 import { HttpError, nowIso, randomId, cleanText, log } from "./util.js";
@@ -52,7 +53,7 @@ export const TOOL_DECLS = [
 ];
 
 /* ---------- تنفيذ الأدوات ---------- */
-const brief = (t, cur) => ({ trip_id: t.id, title: t.title, duration: t.dur, days: t.days, route: t.route,
+const brief = (t, cur) => ({ trip_id: t.id, title: t.title, title_en: TRIPS_EN[t.id]?.title, duration_en: TRIPS_EN[t.id]?.dur, duration: t.dur, days: t.days, route: t.route,
   price_per_person: t.quoteOnly ? "عرض سعر حسب المجموعة" : formatMoney(cur === "USD" ? t.usd : t.egp, cur), highlights: t.inc, season_months: t.months });
 
 function partyFrom(a, extra = {}) {
@@ -90,7 +91,8 @@ export async function runTool(env, ctx, name, args = {}) {
       case "get_details": {
         const t = await getTrip(env, args.trip_id);
         if (!t) return { error: "trip_not_found" };
-        return { ...brief(t, "EGP"), price_usd: t.quoteOnly ? null : t.usd, summary: t.summary, itinerary: t.itin, includes: ["النقل من القاهرة والجيزة", "لاند كروزر ٤×٤", ...t.inc, "رسوم المحميات", "مرشد سفاري"],
+        const en = TRIPS_EN[t.id] || {};
+        return { ...brief(t, "EGP"), price_usd: t.quoteOnly ? null : t.usd, summary: t.summary, summary_en: en.summary, itinerary: t.itin, itinerary_en: en.itin, includes_en: en.inc, includes: ["النقل من القاهرة والجيزة", "لاند كروزر ٤×٤", ...t.inc, "رسوم المحميات", "مرشد سفاري"],
           excludes: ["المشروبات الخاصة", "البقشيش", "أنشطة اختيارية زي الجمل أو الـ ATV"], min_notice_days: t.leadDays || POLICY.minNoticeDays, page: `/trips/${t.id}.html` };
       }
       case "check_availability": {
@@ -151,7 +153,8 @@ async function systemPrompt(env, ctx) {
   return `أنت «مساعد سفرية» — موظف حجوزات في شركة سفرية ديزرت لرحلات السفاري بالدفع الرباعي في الصحراء الغربية المصرية.
 تاريخ النهارده (توقيت القاهرة): ${today}. القناة: ${ctx.channel === "whatsapp" ? "واتساب" : "شات الموقع"}.
 
-اللغة: رد بالعامية المصرية بشكل ودود ومختصر. لو العميل كتب إنجليزي رد إنجليزي. من غير مبالغة ومن غير إيموجي كتير.
+اللغة: معظم عملائنا أجانب. رد بنفس لغة العميل: لو كتب إنجليزي (أو أي لغة أجنبية) رد بإنجليزي احترافي ومختصر واستخدم الأسعار بالدولار، ولو كتب عربي رد بالعامية المصرية واسأله لو مصري (الأسعار بالجنيه) ولا أجنبي. من غير إيموجي.
+لما ترد بالإنجليزي، قدّم أسماء الرحلات والملخص بالإنجليزي (ترجمها بدقة من البيانات).
 
 قواعد إلزامية:
 1. أي معلومة عن رحلة أو سعر أو توافر لازم تيجي من الأدوات. ممنوع تخترع رحلات أو أسعار أو مواعيد أو أماكن فاضية.
@@ -168,10 +171,13 @@ ${ctx.channel === "whatsapp" ? `9. العميل بيكلمنا من رقم وا�
 الأسعار بالجنيه للمصريين وبالدولار للأجانب (رسوم المحميات للأجانب أعلى) — اسأل العميل لو مش واضح.
 
 الرحلات الحالية (كود: اسم — مدة):
-${trips.map(t => `- ${t.id}: ${t.title} — ${t.dur}`).join("\n")}
+${trips.map(t => `- ${t.id}: ${t.title} — ${t.dur} | EN: ${TRIPS_EN[t.id]?.title || ""}`).join("\n")}
 
 أسئلة شائعة:
-${faq.map(f => `س: ${f.q}\nج: ${f.a}`).join("\n")}`;
+${faq.map(f => `س: ${f.q}\nج: ${f.a}`).join("\n")}
+
+FAQ (English):
+${FAQ_EN.map(f => `Q: ${f.q}\nA: ${f.a}`).join("\n")}`;
 }
 
 /* ---------- المحادثة ---------- */

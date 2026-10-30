@@ -1,5 +1,5 @@
 /* الصفحة الرئيسية: شرائح الهيرو + الرحلات + البحث */
-import { $, $$, getCatalog, tripCard, reveal, onCurrency, setCur } from "./app.js";
+import { $, $$, getCatalog, tripCard, reveal, onCurrency, t } from "./app.js";
 import { cairoToday, addDays } from "../../shared/pricing.js";
 
 /* شرائح الهيرو: كل ٦ ثواني، وتقف لو المستخدم مفضّل حركة أقل */
@@ -12,7 +12,7 @@ function show(i) {
   const go = () => {
     slides[cur].classList.remove("on"); next.classList.add("on");
     dots.forEach((d, j) => d.setAttribute("aria-current", String(j === i)));
-    place.innerHTML = `${next.dataset.place} — <a href="${next.dataset.href}" target="_blank" rel="noopener">© ${next.dataset.credit}</a>`;
+    place.innerHTML = `${next.dataset.place} · <a href="${next.dataset.href}" target="_blank" rel="noopener">© ${next.dataset.credit}</a>`;
     cur = i; load(slides[(i + 1) % slides.length]);
   };
   const im = next.querySelector("img");
@@ -31,7 +31,7 @@ $("#fDate").min = min;
 let FILTER = "all", TRIPS = [];
 function render() {
   const list = TRIPS.filter(t => FILTER === "all" || t.cat === FILTER);
-  $("#tripGrid").innerHTML = list.map(tripCard).join("") || `<div class="empty">مفيش رحلات بالاختيار ده دلوقتي.</div>`;
+  $("#tripGrid").innerHTML = list.map(tripCard).join("") || `<div class="empty">${t.noTrips}</div>`;
   reveal($("#tripGrid"));
 }
 $$(".chip").forEach(b => b.addEventListener("click", () => { FILTER = b.dataset.f; $$(".chip").forEach(x => x.setAttribute("aria-pressed", String(x === b))); render(); }));

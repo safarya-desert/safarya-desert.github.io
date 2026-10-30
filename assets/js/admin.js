@@ -190,7 +190,7 @@ async function convoDrawer(id) {
   const c = r.conversation;
   el.innerHTML = `<div style="display:flex;justify-content:space-between"><h2 style="font-size:1.2rem">${c.channel === "whatsapp" ? "واتساب +" + c.external_id : "محادثة الموقع"}</h2><button class="btn btn-ghost" data-close>✕</button></div>
     <div style="display:flex;gap:6px;flex-wrap:wrap">${[["bot", "رجّعها للوكيل"], ["human", "موظف هيرد"], ["closed", "اقفلها"]].map(([s, t]) => `<button class="btn ${c.status === s ? "btn-primary" : "btn-ghost"}" data-st="${s}">${t}</button>`).join("")}</div>
-    <div class="convo">${r.messages.map(m => `<div class="msg ${m.role === "user" ? "u" : m.role === "tool" ? "sys" : "b"}">${m.role === "staff" ? "👤 " : m.role === "tool" ? "⚙️ " : ""}${esc(m.text)}</div>`).join("")}</div>
+    <div class="convo">${r.messages.map(m => `<div class="msg ${m.role === "user" ? "u" : m.role === "tool" ? "sys" : "b"}">${m.role === "staff" ? "[موظف] " : m.role === "tool" ? "[أداة] " : ""}${esc(m.text)}</div>`).join("")}</div>
     ${c.channel === "whatsapp" ? `<form id="rf" style="display:grid;gap:8px"><textarea id="rt" rows="3" placeholder="رد من الموظف (متاح لحد ٢٤ ساعة من آخر رسالة للعميل)"></textarea><button class="btn btn-wa">ابعت على واتساب</button></form>` : ""}`;
   $(".drawer [data-close]").addEventListener("click", close);
   $$(".drawer [data-st]").forEach(b => b.addEventListener("click", async () => { await A(`/api/admin/conversations/${id}/status`, { status: b.dataset.st }); toast("اتحدثت", "ok"); convoDrawer(id); convos(); }));

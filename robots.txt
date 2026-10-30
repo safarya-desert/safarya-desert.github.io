@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /booking/
+Disallow: /ar/booking/
 
 Sitemap: https://safarya-desert.github.io/sitemap.xml
