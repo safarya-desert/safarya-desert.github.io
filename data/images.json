@@ -1,6 +1,6 @@
 {
  "_note": "صور حقيقية من Wikimedia Commons. كل البيانات (المؤلف/الترخيص/المقاس) متجابة من Commons API يوم 2026-10-30. شغّل tools/verify-images.mjs لإعادة التحقق.",
- "checked": "2026-10-30",
+ "checked": "2026-11-01",
  "places": {
   "white": {
    "ar": "الصحراء البيضاء",
@@ -226,7 +226,7 @@
    "w": 3024,
    "h": 4032,
    "license": "CC0",
-   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
    "author": "Egypt Tour Magic",
    "match": "الوصف + GPS 29.211,25.524"
   },
@@ -275,7 +275,7 @@
    "h": 1365,
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-   "author": "Vyacheslav Argenberg",
+   "author": "Vyacheslav Argenberg from Rostov-on-Don, Russian Federation",
    "match": "تصنيف Al-Qasr, Egypt"
   },
   "deirHagar": {
@@ -287,7 +287,7 @@
    "h": 1569,
    "license": "Attribution",
    "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
-   "author": "Karl Lang",
+   "author": "Karl Lang, D-72224 Ebhausen-Rotfelden",
    "match": "تصنيف Temple of Deir el-Hagar"
   },
   "hibis": {
@@ -311,7 +311,7 @@
    "h": 1333,
    "license": "CC BY-SA 2.0 de",
    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
-   "author": "Kabaeh49 (German Wikipedia)",
+   "author": "Kabaeh49 at German Wikipedia",
    "match": "الوصف: Coptic necropolis at Al-Bagawat in the Kharga Oasis"
   },
   "agiba": {
@@ -334,7 +334,7 @@
    "w": 1024,
    "h": 768,
    "license": "CC BY-SA 3.0",
-   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
    "author": "H. Raab (User:Vesta)",
    "match": "عينة من الزجاج الليبي (صورة للحجر نفسه مش للمكان)"
   },
@@ -359,7 +359,7 @@
    "h": 536,
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-   "author": "Ilan Molcho",
+   "author": "Ilan Molcho https://www.flickr.com/people/98489045@N00/",
    "match": "الوصف: A caravan of tourist 4x4s seen from atop a mesa in Gilf Kebir (دقة 800px بس)"
   },
   "djaraArt": {
